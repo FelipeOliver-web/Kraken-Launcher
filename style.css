@@ -150,3 +150,34 @@ footer {
 .close-link:hover {
   background-color: #c64aff;
 }
+/* Estiliza o container principal do header */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Organiza logo + título lado a lado */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estiliza especificamente a imagem do logo */
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #a020f0;
+  transition: transform 0.3s ease;
+}
+
+/* Efeito hover no logo */
+.logo:hover {
+  transform: rotate(15deg);
+}
