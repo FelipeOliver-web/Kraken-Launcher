@@ -42,6 +42,8 @@ nav a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
 }
 
 .game-card {
@@ -50,6 +52,7 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   transition: transform 0.2s ease;
+  text-align: center;
 }
 
 .game-card:hover {
@@ -62,11 +65,13 @@ nav a:hover {
   border-radius: 10px;
   margin-bottom: 10px;
   border: 2px solid #a020f0;
+  user-select: none;
 }
 
 .game-card h2 {
   color: #a020f0;
   margin-top: 0;
+  user-select: none;
 }
 
 .game-card a {
@@ -77,6 +82,8 @@ nav a:hover {
   padding: 8px 16px;
   border-radius: 5px;
   text-decoration: none;
+  font-weight: bold;
+  user-select: none;
 }
 
 .game-card a:hover {
@@ -89,9 +96,9 @@ footer {
   background-color: #111;
   border-top: 2px solid #a020f0;
   color: #888;
+  user-select: none;
 }
 
-/* Biblioteca em modo "pop-up" com :target */
 .hidden {
   display: none;
   position: fixed;
@@ -135,6 +142,7 @@ footer {
   margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #a020f0;
+  user-select: none;
 }
 
 .close-link {
@@ -145,12 +153,13 @@ footer {
   padding: 6px 12px;
   text-decoration: none;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .close-link:hover {
   background-color: #c64aff;
 }
-/* Estiliza o container principal do header */
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -160,14 +169,12 @@ footer {
   margin: 0 auto;
 }
 
-/* Organiza logo + título lado a lado */
 .logo-title {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Estiliza especificamente a imagem do logo */
 .logo {
   width: 50px;
   height: 50px;
@@ -175,9 +182,110 @@ footer {
   object-fit: cover;
   border: 2px solid #a020f0;
   transition: transform 0.3s ease;
+  user-select: none;
 }
 
-/* Efeito hover no logo */
 .logo:hover {
   transform: rotate(15deg);
+}
+
+/* Parallax e barra de pesquisa */
+.parallax-section {
+  background-image: url('https://wallpapercave.com/wp/wp5121224.jpg');
+  height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-text {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px 40px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #a020f0;
+  box-shadow: 0 0 10px #a020f0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.parallax-text input#searchInput {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border: 2px solid #a020f0;
+  border-radius: 25px;
+  outline: none;
+  color: #0a0a0a;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease;
+}
+
+.parallax-text input#searchInput::placeholder {
+  color: #a020f0;
+}
+
+.parallax-text input#searchInput:focus {
+  box-shadow: 0 0 10px #c64aff;
+  border-color: #c64aff;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+  .game-list {
+    padding: 20px 10px;
+  }
+  .parallax-text input#searchInput {
+    width: 90vw;
+  }
+}
+
+/* Lista de resultados do filtro */
+#searchResults {
+  margin-top: 15px;
+  max-height: 250px;
+  overflow-y: auto;
+  text-align: left;
+  border: 1px solid #a020f0;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 10px #a020f0;
+}
+
+#searchResults .result-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #a020f0;
+  color: #e0e0ff;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+#searchResults .result-item:last-child {
+  border-bottom: none;
+}
+
+#searchResults .result-item:hover {
+  background-color: #a020f0;
+  color: #0a0a0a;
+}
+
+#searchResults .result-item a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+#searchResults .result-item span {
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 4px;
+  color: #c64aff;
 }
