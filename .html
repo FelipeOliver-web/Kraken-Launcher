@@ -8,58 +8,65 @@
 </head>
 <body>
   <header>
-  <div class="header-container">
-    <div class="logo-title">
-      <img src="https://i.postimg.cc/Jsj8CJqd/OIG2.jpg" alt="Logo Kraken" class="logo" />
-      <h1>Kraken Launcher</h1>
+    <div class="header-container">
+      <div class="logo-title">
+        <img src="https://i.postimg.cc/Jsj8CJqd/OIG2.jpg" alt="Logo Kraken" class="logo" />
+        <h1>Kraken Launcher</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#biblioteca">Bibliotecas</a></li>
+          <li><a href="#">Loja</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#biblioteca">Bibliotecas</a></li>
-        <li><a href="#">Loja</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
+  <!-- Seção com efeito Parallax e barra de pesquisa -->
+  <section class="parallax-section">
+    <div class="parallax-text">
+      <input type="text" id="searchInput" placeholder="Busque seus jogos favoritos..." autocomplete="off" />
+      <div id="searchResults"></div>
+    </div>
+  </section>
 
   <!-- Página principal -->
   <main id="inicio" class="game-list">
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg" alt="Hollow Knight" />
       <h2>Hollow Knight</h2>
-      <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570940/header.jpg" alt="Dark Souls" />
       <h2>Dark Souls</h2>
-      <a href="https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg" alt="Cuphead" />
       <h2>Cuphead</h2>
-      <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg" alt="Celeste" />
       <h2>Celeste</h2>
-      <a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/219150/header.jpg" alt="Hotline Miami" />
       <h2>Hotline Miami</h2>
-      <a href="https://store.steampowered.com/app/219150/Hotline_Miami/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/219150/Hotline_Miami/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg" alt="Dead Cells" />
       <h2>Dead Cells</h2>
-      <a href="https://store.steampowered.com/app/588650/Dead_Cells/" target="_blank">Ver na Steam</a>
+      <a href="https://store.steampowered.com/app/588650/Dead_Cells/" target="_blank" rel="noopener noreferrer">Ver na Steam</a>
     </article>
   </main>
 
@@ -80,5 +87,7 @@
   <footer>
     <p>&copy; 2025 Kraken Launcher</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
