@@ -290,3 +290,99 @@ footer {
   color: #c64aff;
 }
 
+.section-title {
+  font-size: 2rem;
+  color: #b57aff; 
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.vr-games-list {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #b57aff transparent;
+  justify-content: center; 
+}
+
+
+.vr-games-list::-webkit-scrollbar {
+  height: 8px;          
+}
+
+.vr-games-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vr-games-list::-webkit-scrollbar-thumb {
+  background-color: #b57aff;
+  border-radius: 4px;
+}
+
+.vr-game-card {
+  flex: 0 0 250px;         
+  background: #121212; 
+  border: 2px solid #8b55ff; 
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #a366ff;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+
+.vr-game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #c699ff;
+}
+
+.vr-game-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  height: 136px;
+  object-fit: cover;
+}
+
+.vr-game-card h3 {
+  color: #d8baff;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.vr-game-card .btn {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: #8b55ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.vr-game-card .btn:hover {
+  background: #b57aff;
+}
+
+.vr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center; 
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 1100px;    
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.section-title {
+  color: #d8baff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+}
