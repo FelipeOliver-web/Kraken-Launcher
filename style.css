@@ -370,11 +370,11 @@ footer {
 .vr-container {
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  justify-content: center; 
+  align-items: center;    /* centraliza horizontalmente */
+  justify-content: center; /* centraliza verticalmente (se precisar) */
   margin: 2rem 0;
   width: 100%;
-  max-width: 1100px;    
+  max-width: 1100px;      /* limite maximo para não ficar esticado demais */
   padding: 0 1rem;
   box-sizing: border-box;
 }
@@ -385,4 +385,17 @@ footer {
   margin-bottom: 1.5rem;
   text-align: center;
 
+}
+
+.parallax-section {
+  background-image: url('https://wallpapercave.com/wp/wp5121224.jpg');
+  height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
