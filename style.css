@@ -1,79 +1,91 @@
+/* Define estilo geral da página */
 body {
-  background-color: #0a0a0a;
-  color: #e0e0ff;
-  font-family: Arial, sans-serif;
+  background-color: #0a0a0a; /* Fundo preto escuro */
+  color: #e0e0ff; /* Texto em roxo claro */
+  font-family: Arial, sans-serif; /* Fonte padrão */
   margin: 0;
   padding: 0;
 }
 
+/* Estilo do cabeçalho */
 header {
-  background-color: #1a1a1a;
-  border-bottom: 2px solid #a020f0;
+  background-color: #1a1a1a; /* Fundo do cabeçalho */
+  border-bottom: 2px solid #a020f0; /* Linha roxa na parte inferior */
   padding: 20px;
-  text-align: center;
+  text-align: center; /* Centraliza conteúdo */
 }
 
+/* Título no cabeçalho */
 header h1 {
   margin: 0;
-  color: #a020f0;
+  color: #a020f0; /* Cor roxa vibrante */
 }
 
+/* Lista de navegação */
 nav ul {
-  list-style: none;
+  list-style: none; /* Remove marcadores */
   padding: 0;
   margin: 10px 0 0 0;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: center; /* Centraliza os itens */
+  gap: 30px; /* Espaço entre itens */
 }
 
+/* Links de navegação */
 nav a {
   text-decoration: none;
   color: #e0e0ff;
   font-weight: bold;
 }
 
+/* Efeito hover nos links */
 nav a:hover {
-  color: #a020f0;
+  color: #a020f0; /* Muda para roxo vibrante */
 }
 
+/* Lista de jogos em grade responsiva */
 .game-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
   gap: 20px;
   padding: 40px;
   max-width: 1200px;
-  margin: 0 auto 80px auto;
+  margin: 0 auto 80px auto; /* Centraliza */
 }
 
+/* Cartão de cada jogo */
 .game-card {
   background-color: #1a1a1a;
   border: 2px solid #a020f0;
   padding: 20px;
   border-radius: 10px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; /* Suaviza efeito hover */
   text-align: center;
 }
 
+/* Efeito hover nos cartões */
 .game-card:hover {
-  transform: scale(1.03);
-  border-color: #c64aff;
+  transform: scale(1.03); /* Aumenta levemente */
+  border-color: #c64aff; /* Muda borda */
 }
 
+/* Imagem do jogo */
 .game-card img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
   border: 2px solid #a020f0;
-  user-select: none;
+  user-select: none; /* Impede seleção */
 }
 
+/* Título do jogo */
 .game-card h2 {
   color: #a020f0;
   margin-top: 0;
   user-select: none;
 }
 
+/* Botão/link do jogo */
 .game-card a {
   display: inline-block;
   margin-top: 10px;
@@ -86,10 +98,12 @@ nav a:hover {
   user-select: none;
 }
 
+/* Hover no botão/link */
 .game-card a:hover {
   background-color: #c64aff;
 }
 
+/* Rodapé da página */
 footer {
   text-align: center;
   padding: 20px;
@@ -99,6 +113,7 @@ footer {
   user-select: none;
 }
 
+/* Janela de popup (ex: biblioteca) */
 .hidden {
   display: none;
   position: fixed;
@@ -113,21 +128,25 @@ footer {
   box-shadow: 0 0 15px #a020f0;
 }
 
+/* Exibe popup quando é alvo */
 #biblioteca:target {
   display: block;
 }
 
+/* Título da seção da biblioteca */
 .library-section h2 {
   color: #a020f0;
   margin-bottom: 15px;
 }
 
+/* Lista da biblioteca */
 .library {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Item da biblioteca */
 .library li {
   display: flex;
   align-items: center;
@@ -136,6 +155,7 @@ footer {
   font-size: 1em;
 }
 
+/* Imagem da biblioteca */
 .library img {
   width: 92px;
   height: auto;
@@ -145,6 +165,7 @@ footer {
   user-select: none;
 }
 
+/* Botão para fechar popup */
 .close-link {
   display: inline-block;
   margin-bottom: 10px;
@@ -156,10 +177,12 @@ footer {
   font-weight: bold;
 }
 
+/* Hover do botão de fechar */
 .close-link:hover {
   background-color: #c64aff;
 }
 
+/* Container do cabeçalho com logo + título */
 .header-container {
   display: flex;
   flex-direction: column;
@@ -169,12 +192,14 @@ footer {
   margin: 0 auto;
 }
 
+/* Agrupamento de logo e título */
 .logo-title {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+/* Logo do site */
 .logo {
   width: 50px;
   height: 50px;
@@ -185,13 +210,14 @@ footer {
   user-select: none;
 }
 
+/* Efeito ao passar o mouse na logo */
 .logo:hover {
   transform: rotate(15deg);
 }
 
-/* Parallax e barra de pesquisa */
+/* Seção com efeito parallax */
 .parallax-section {
-  background-image: url('https://s11.aconvert.com/convert/p3r68-cdx67/h91nm-lnn6q.jpg');
+  background-image: url('https://wallpapercave.com/wp/wp5121224.jpg');
   height: 400px;
   background-attachment: fixed;
   background-position: center;
@@ -203,6 +229,7 @@ footer {
   justify-content: center;
 }
 
+/* Texto e input na área parallax */
 .parallax-text {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
@@ -215,6 +242,7 @@ footer {
   max-width: 500px;
 }
 
+/* Campo de busca */
 .parallax-text input#searchInput {
   width: 100%;
   padding: 10px 15px;
@@ -227,26 +255,29 @@ footer {
   transition: box-shadow 0.3s ease;
 }
 
+/* Placeholder do input */
 .parallax-text input#searchInput::placeholder {
   color: #a020f0;
 }
 
+/* Foco no campo de busca */
 .parallax-text input#searchInput:focus {
   box-shadow: 0 0 10px #c64aff;
   border-color: #c64aff;
 }
 
-/* Responsividade simples */
+/* Layout responsivo para mobile */
 @media (max-width: 600px) {
   .game-list {
     padding: 20px 10px;
   }
+
   .parallax-text input#searchInput {
     width: 90vw;
   }
 }
 
-/* Lista de resultados do filtro */
+/* Resultados do filtro de busca */
 #searchResults {
   margin-top: 15px;
   max-height: 250px;
@@ -258,6 +289,7 @@ footer {
   box-shadow: 0 0 10px #a020f0;
 }
 
+/* Cada item nos resultados */
 #searchResults .result-item {
   padding: 10px 15px;
   border-bottom: 1px solid #a020f0;
@@ -267,15 +299,18 @@ footer {
   transition: background-color 0.2s ease;
 }
 
+/* Remove borda do último item */
 #searchResults .result-item:last-child {
   border-bottom: none;
 }
 
+/* Hover no item de resultado */
 #searchResults .result-item:hover {
   background-color: #a020f0;
   color: #0a0a0a;
 }
 
+/* Link dentro do item */
 #searchResults .result-item a {
   color: inherit;
   text-decoration: none;
@@ -283,6 +318,7 @@ footer {
   display: block;
 }
 
+/* Subtexto (ex: gênero do jogo) */
 #searchResults .result-item span {
   font-size: 0.9rem;
   display: block;
@@ -290,12 +326,15 @@ footer {
   color: #c64aff;
 }
 
+/* Título das seções */
 .section-title {
   font-size: 2rem;
-  color: #b57aff; 
+  color: #b57aff;
   margin-bottom: 1rem;
   font-weight: 700;
 }
+
+/* Lista de jogos VR com rolagem horizontal */
 .vr-games-list {
   display: flex;
   gap: 1.5rem;
@@ -303,12 +342,12 @@ footer {
   padding-bottom: 1rem;
   scrollbar-width: thin;
   scrollbar-color: #b57aff transparent;
-  justify-content: center; 
+  justify-content: center;
 }
 
-
+/* Barra de rolagem webkit */
 .vr-games-list::-webkit-scrollbar {
-  height: 8px;          
+  height: 8px;
 }
 
 .vr-games-list::-webkit-scrollbar-track {
@@ -320,10 +359,11 @@ footer {
   border-radius: 4px;
 }
 
+/* Cartão de jogo VR */
 .vr-game-card {
-  flex: 0 0 250px;         
-  background: #121212; 
-  border: 2px solid #8b55ff; 
+  flex: 0 0 250px;
+  background: #121212;
+  border: 2px solid #8b55ff;
   border-radius: 12px;
   padding: 1rem;
   text-align: center;
@@ -332,12 +372,13 @@ footer {
   cursor: pointer;
 }
 
-
+/* Hover no cartão VR */
 .vr-game-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #c699ff;
 }
 
+/* Imagem no cartão VR */
 .vr-game-card img {
   max-width: 100%;
   border-radius: 8px;
@@ -346,12 +387,14 @@ footer {
   object-fit: cover;
 }
 
+/* Título do jogo VR */
 .vr-game-card h3 {
   color: #d8baff;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }
 
+/* Botão nos cartões VR */
 .vr-game-card .btn {
   display: inline-block;
   padding: 0.5rem 1.2rem;
@@ -363,39 +406,20 @@ footer {
   transition: background 0.3s ease;
 }
 
+/* Hover do botão */
 .vr-game-card .btn:hover {
   background: #b57aff;
 }
 
+/* Container da seção VR */
 .vr-container {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* centraliza horizontalmente */
-  justify-content: center; /* centraliza verticalmente (se precisar) */
-  margin: 2rem 0;
-  width: 100%;
-  max-width: 1100px;      /* limite maximo para não ficar esticado demais */
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-.section-title {
-  color: #d8baff;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-
-}
-
-.parallax-section {
-  background-image: url('https://wallpapercave.com/wp/wp5121224.jpg');
-  height: 400px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
