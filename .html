@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kraken Launcher</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+
   <header>
-<<<<<<< Updated upstream
-  <div class="header-container">
-    <div class="logo-title">
-      <img src="https://i.postimg.cc/Jsj8CJqd/OIG2.jpg" alt="Logo Kraken" class="logo" />
-      <h1>Kraken Launcher</h1>
-=======
     <!-- Cabeçalho da página -->
     <div class="header-container">
       <!-- Container do cabeçalho -->
@@ -33,77 +30,106 @@
           <!-- Link para a seção de início -->
           <li><a href="biblioteca.html">Bibliotecas</a></li>
           <!-- Link para a seção de biblioteca -->
-       
+          <li><a href="#">Loja</a></li>
+          <!-- Link da loja (sem funcionalidade por enquanto) -->
         </ul>
       </nav>
->>>>>>> Stashed changes
     </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#biblioteca">Biblioteca</a></li>
-        <li><a href="#">Loja</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
+  <!-- Seção com efeito Parallax e barra de pesquisa -->
+  <section class="parallax-section">
+    <div class="parallax-text">
+      <!-- Campo de busca de jogos -->
+      <input type="text" id="searchInput" placeholder="Busque seus jogos favoritos..." autocomplete="off" />
+      <!-- Resultados da busca aparecem aqui -->
+      <div id="searchResults"></div>
+    </div>
+  </section>
 
-  <!-- Página principal -->
   <main id="inicio" class="game-list">
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg" alt="Hollow Knight" />
       <h2>Hollow Knight</h2>
       <a href="https://store.steampowered.com/app/367520/Hollow_Knight/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570940/header.jpg" alt="Dark Souls" />
       <h2>Dark Souls</h2>
       <a href="https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg" alt="Cuphead" />
       <h2>Cuphead</h2>
       <a href="https://store.steampowered.com/app/268910/Cuphead/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg" alt="Celeste" />
       <h2>Celeste</h2>
       <a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/219150/header.jpg" alt="Hotline Miami" />
       <h2>Hotline Miami</h2>
       <a href="https://store.steampowered.com/app/219150/Hotline_Miami/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
 
     <article class="game-card">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg" alt="Dead Cells" />
       <h2>Dead Cells</h2>
       <a href="https://store.steampowered.com/app/588650/Dead_Cells/" target="_blank">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
     </article>
   </main>
 
-  <!-- Biblioteca como pop-up -->
-  <section id="biblioteca" class="library-section hidden">
-    <a href="#" class="close-link">Fechar</a>
-    <h2>Biblioteca</h2>
-    <ul class="library">
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/capsule_184x69.jpg" alt="Hollow Knight"> Hollow Knight</li>
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570940/capsule_184x69.jpg" alt="Dark Souls"> Dark Souls</li>
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/268910/capsule_184x69.jpg" alt="Cuphead"> Cuphead</li>
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/504230/capsule_184x69.jpg" alt="Celeste"> Celeste</li>
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/219150/capsule_184x69.jpg" alt="Hotline Miami"> Hotline Miami</li>
-      <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/588650/capsule_184x69.jpg" alt="Dead Cells"> Dead Cells</li>
-    </ul>
-  </section>
+  <h2 class="section-title">Realidade virtual</h2>
 
+  <div class="vr-games-list">
+    <div class="vr-game-card">
+      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1608400/header_292x136.jpg?t=1742850195" alt="Vermillion">
+      <h3>Vermillion - VR</h3>
+      <a href="https://store.steampowered.com/app/1608400/Vermillion__VR_Painting/" target="_blank" class="btn">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
+    </div>
+
+    <div class="vr-game-card">
+      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/546560/header_292x136.jpg?t=1673391297" alt="Half-Life">
+      <h3>Half-Life</h3>
+      <a href="https://store.steampowered.com/app/546560/HalfLife_Alyx/" target="_blank" class="btn">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
+    </div>
+
+    <div class="vr-game-card">
+      <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/751630/header.jpg?t=1725370665" alt="After the Fall">
+      <h3>After the Fall</h3>
+      <a href="https://store.steampowered.com/app/751630/After_the_Fall/" target="_blank" class="btn">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
+    </div>
+
+    <div class="vr-game-card">
+      <img src="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/620980/header.jpg?t=1740671643" alt="Beat Saber">
+      <h3>Beat Saber</h3>
+      <a href="https://store.steampowered.com/app/620980/Beat_Saber/" target="_blank" class="btn">Ver na Steam</a>
+      <button class="favorito-btn">Favoritar</button>
+    </div>
+  </div>
   <footer>
+    <!-- Rodapé do site -->
     <p>&copy; 2025 Kraken Launcher</p>
+    <!-- Texto de direitos autorais -->
   </footer>
+
+  <!-- Inclusão do arquivo JavaScript externo -->
+  <script src="script.js"></script>
 </body>
+
 </html>

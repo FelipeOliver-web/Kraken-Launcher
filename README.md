@@ -22,6 +22,7 @@ Desenvolver uma plataforma web onde o usuário possa visualizar uma biblioteca d
 
 ## Tecnologias a Serem Usadas
 - HTML5  
-- CSS3  
+- CSS3
+- Javascript 
 - Bootstrap (opcional, para facilitar o layout)  
 - Git e GitHub para controle de versão
