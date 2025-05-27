@@ -56,9 +56,9 @@
   </article>
 
   <article class="game-card">
-    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/570940/header.jpg" alt="Dark Souls" />
-    <h2>Dark Souls</h2>
-    <a href="https://store.steampowered.com/app/570940/DARK_SOULS_REMASTERED/" target="_blank">Ver na Steam</a>
+    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/782330/header.jpg?t=1702308063" alt="Dark Souls" />
+    <h2>Doom: Eternal</h2>
+    <a href="https://store.steampowered.com/app/782330/DOOM_Eternal/" target="_blank">Ver na Steam</a>
     <button class="favorito-btn">Favoritar</button>
   </article>
 
@@ -118,6 +118,7 @@
   <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank">Ver na Steam</a>
   <button class="favorito-btn">Favoritar</button>
 </article>
+6
 
 </main>
 
@@ -125,13 +126,31 @@
    
   </div>
   <footer>
-    <!-- Rodapé do site -->
-    <p>&copy; 2025 Kraken Launcher</p>
-    <!-- Texto de direitos autorais -->
-  </footer>
+  <!-- Rodapé do site -->
+  <p>&copy; 2025 Kraken Launcher</p>
 
-  <!-- Inclusão do arquivo JavaScript externo -->
-  <script src="script.js"></script>
+  <!-- Botões adicionais -->
+  <div class="footer-buttons">
+    <button onclick="mostrarSobre()">Sobre nós</button>
+    <button onclick="mostrarContato()">Contato</button>
+    <button onclick="mostrarAgradecimentos()">Agradecimentos</button>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<script>
+  function mostrarSobre() {
+    alert("Integrantes do grupo:\nErick, Felipe, Isaac, Aurélio e Samira");
+  }
+
+  function mostrarContato() {
+    alert("Contato: 83986623334\nCNPJ: 60.889.068/0001-03");
+  }
+
+  function mostrarAgradecimentos() {
+    alert("Agradecimentos ao Professor Daniel");
+  }
+</script>
 </body>
-
 </html>
