@@ -15,8 +15,7 @@ Desenvolver uma plataforma web onde o usuário possa visualizar uma biblioteca d
 ## Funcionalidades Esperadas
 - Página inicial com destaques e apresentação do projeto  
 - Página de biblioteca com lista de jogos fictícios  
-- Página individual de jogo com imagem, descrição e botão simulado de "instalar"  
-- Formulário de login ou cadastro de usuário  
+- Página individual de jogo com imagem.   
 - Navegação entre páginas por menu fixo  
 - Layout responsivo com identidade visual própria
 
