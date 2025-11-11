@@ -1,10 +1,10 @@
 # Kraken-Launcher
 # Grupo
-1. Felipe de Oliveira Fonseca Silva  
-2. Erick Schinneyder de Andrade Serrão  
-3. José Reinaldo Gomes Bezerra
-4. Elthon de Matos Moura Melo
-5. Marco Aurélio de Araújo Fernandes  
+1. Felipe de Oliveira Fonseca Silva (RGM:42862451 )
+3. Erick Schinneyder de Andrade Serrão (RGM:44093888)
+4. José Reinaldo Gomes Bezerra (RGM:44034083)
+5. Elthon de Matos Moura Melo (RGM:43683525)
+6. Marco Aurélio de Araújo Fernandes (RGM:42919207)  
 
 ## Descrição do Projeto
 O *Kraken Launcher* será uma aplicação web que simula um launcher de jogos, inspirado em plataformas como Steam e Hydra Launcher. A proposta é criar uma versão simplificada com páginas básicas, interface visual agradável e navegação funcional.
