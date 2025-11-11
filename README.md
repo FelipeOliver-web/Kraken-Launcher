@@ -2,8 +2,8 @@
 # Grupo
 1. Felipe de Oliveira Fonseca Silva  
 2. Erick Schinneyder de Andrade Serrão  
-3. Ysaac William Barbosa Viana Colaço  
-4. Samira da Silva Pontes  
+3. José Reinaldo Gomes Bezerra
+4. Elthon de Matos Moura Melo
 5. Marco Aurélio de Araújo Fernandes  
 
 ## Descrição do Projeto
@@ -25,3 +25,5 @@ Desenvolver uma plataforma web onde o usuário possa visualizar uma biblioteca d
 - Javascript 
 - Bootstrap (opcional, para facilitar o layout)  
 - Git e GitHub para controle de versão
+- PHP
+- MYSQL(Banco de Dados)
