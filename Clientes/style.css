@@ -566,3 +566,14 @@ footer {
 .footer-buttons button:hover {
   background-color: #555;
 }
+
+a {
+  margin-top: 10px;
+  margin: 5px;
+  padding: 8px 12px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}

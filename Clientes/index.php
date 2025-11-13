@@ -2,7 +2,6 @@
 
     include_once "Header.php";
     include_once "Busca.php";
-    include_once "Menu.php";
 
     if(empty($_SERVER["QUERY_STRING"])){
         $var = "Pagina-Principal";

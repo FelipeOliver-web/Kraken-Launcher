@@ -4,9 +4,9 @@
 
   <!-- Botões adicionais -->
   <div class="footer-buttons">
-    <button href="?pg=Sobre-nos">Sobre nós</button>
-    <button href="?pg=Contatos">Contato</button>
-    <button href="?pg=Agradecimentos">Agradecimentos</button>
+    <button><a href="?pg=Sobre-Nos">Sobre nós</a></button>
+    <button><a href="?pg=Contatos">Contato</a></button>
+    <button><a href="?pg=Agradecimentos">Agradecimentos</a></button>
   </div>
 </footer>
 
