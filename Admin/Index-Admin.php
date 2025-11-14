@@ -1,9 +1,10 @@
-<?php 
+<?php
 
-    include_once "Menu-Admin.php";
-    
+    include_once "Header-Admin.php";
+    include_once "Principal-Admin.php";
+
     if(empty($_SERVER["QUERY_STRING"])){
-        $var = "Menu-Admin";
+        $var = "Principal-Admin";
         include_once "$var.php";
     }elseif($_GET['pg']){
         $pg = $_GET['pg'];
@@ -11,4 +12,5 @@
     }else{
         echo "Página não encontrada";
     }
-    ?>
+
+?>

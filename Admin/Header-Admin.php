@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kraken Launcher</title>
-  <link rel="stylesheet" href="../Clientes/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -26,7 +26,8 @@
             <nav>
                 <!-- Navegação do site -->
                 <ul>
-                    <li><a href="?pg=Pagina-Principal">Jogos</a></li>
+                    <li><a href="?pg=Principal-Admin">Jogos</a></li>
+                    <li><a href="../Clientes/Index.php">Clientes</a></li>
                 </ul>
             </nav>
         </div>
