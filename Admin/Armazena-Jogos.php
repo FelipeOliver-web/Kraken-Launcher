@@ -10,14 +10,14 @@
         echo "<H2>Envio de dados não permitido</H2>";
     }
 
-    $sql = "INSERT INTO cards (imagem, nome, link)
+    $sql = "INSERT INTO jogos (imagem, nome, link)
             VALUES ('$imagem', '$nome', '$link')";
 
     $inserir = mysqli_query($conexao, $sql);
 
     if($inserir) {
         echo "<H2>Cadastrado com sucesso</H2>";
-        echo "<a href=../index.php>Verificar</a>";
+        echo "<div class='footer-buttons'><button><a href='?pg=Principal-Admin'>Verificar</a></button></div>";
     }else{
         echo "Cadastrado não realizado.";
     }

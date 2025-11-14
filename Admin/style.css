@@ -53,25 +53,40 @@ input {
     justify-content: center;
 }
 
-/* Lista de jogos em grade responsiva */
-.game-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto 80px auto; /* Centraliza */
-}
-
-/* Cartão de cada jogo */
-.game-card {
-  background-color: #1a1a1a;
-  border: 2px solid #a020f0;
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.2s ease; /* Suaviza efeito hover */
+section {
   text-align: center;
 }
+
+#inicio.game-list {
+    display: block;
+    gap: 0;
+    padding: 20px 0;
+    max-width: 50%; /* LARGURA MÁXIMA DEFINIDA PELO USUÁRIO */
+    margin: 0 auto; /* CENTRALIZAÇÃO */
+    text-align: center;
+}
+
+.game-card {
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #a020f0;
+    
+    padding: 12px 20px;
+    min-height: 80px;
+    
+    border-radius: 10px; /* Arredondamento solicitado */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    
+    /* ESSENCIAL: Layout horizontal */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    
+    text-align: left;
+    margin-bottom: 10px; /* Espaçamento entre cards solicitado */
+    overflow: hidden;
+}
+
 
 /* Efeito hover nos cartões */
 .game-card:hover {
@@ -81,11 +96,16 @@ input {
 
 /* Imagem do jogo */
 .game-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #a020f0;
-  user-select: none; /* Impede seleção */
+    width: 20%; /* Largura definida pelo usuário */
+    height: auto; 
+    object-fit: cover;
+    border-radius: 10px; /* Arredondamento definido pelo usuário */
+    
+    /* Estilo e Posição */
+    margin-left: 15px; /* Empurra a imagem para a direita */
+    border: 2px solid #a020f0;
+    user-select: none;
+    flex-shrink: 0;
 }
 
 /* Título do jogo */
@@ -106,6 +126,10 @@ input {
   text-decoration: none;
   font-weight: bold;
   user-select: none;
+}
+
+.button-excluir a {
+  background-color: red;
 }
 
 /* Hover no botão/link */
@@ -505,8 +529,25 @@ footer {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.excluir-btn {
+  background-color: #f11111; /* Roxo-azulado */
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 .favorito-btn:hover {
   background-color: #3730a3; /* Mais escuro ao passar o mouse */
+  transform: scale(1.05);
+}
+
+.excluir-btn:hover {
+  background-color: #821010; /* Mais escuro ao passar o mouse */
   transform: scale(1.05);
 }
 
