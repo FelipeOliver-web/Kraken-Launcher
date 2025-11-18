@@ -6,12 +6,13 @@
         $imagem = $_POST["imagem"];
         $nome = $_POST["nome"];
         $link = $_POST["link"];
+        $estatus = $_POST['estatus'];
     }else{
         echo "<H2>Envio de dados não permitido</H2>";
     }
 
-    $sql = "INSERT INTO jogos (imagem, nome, link)
-            VALUES ('$imagem', '$nome', '$link')";
+    $sql = "INSERT INTO jogos (imagem, nome, link, estatus)
+            VALUES ('$imagem', '$nome', '$link', '$estatus')";
 
     $inserir = mysqli_query($conexao, $sql);
 

@@ -18,7 +18,7 @@ while($dados = mysqli_fetch_array($resultado))
       <img src="' . $dados ['imagem'] . '" alt="' . $dados ['nome'] . '" />
       <h2>' . $dados ['nome'] . '</h2>
       <a href="' . $dados ['nome'] . '" target="_blank">Ver na Steam</a>
-      <button class="favorito-btn">Favoritar</button>
+      <a class="favorito-btn" href="?pg=Biblioteca&id=' . $dados['id'] . '&estatus=true">Favoritar</a>
     </article>';
   }
 
