@@ -8,30 +8,26 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<div class="header-container">
+    <div class="logo-title">
+        <img src="https://i.postimg.cc/Jsj8CJqd/OIG2.jpg" alt="Logo Kraken" class="logo" />
+        <h1>Kraken Launcher</h1>
+    </div>
 
-    <header>
-        <!-- Cabeçalho da página -->
-        <div class="header-container">
-            <!-- Container do cabeçalho -->
+    <nav>
+        <ul>
+            <li><a href="?pg=Pagina-Principal">Início</a></li>
+            <li><a href="?pg=Biblioteca">Biblioteca</a></li>
+            <li><a href="../Admin/Index-Admin.php">Admin</a></li>
+        </ul>
+    </nav>
 
-            <div class="logo-title">
-                <!-- Logo e título do launcher -->
-                <img src="https://i.postimg.cc/Jsj8CJqd/OIG2.jpg" alt="Logo Kraken" class="logo" />
-                <!-- Imagem da logo -->
-                <h1>Kraken Launcher</h1>
-                <!-- Título principal -->
-            </div>
-
-            <nav>
-                <!-- Navegação do site -->
-                <ul>
-                    <li><a href="?pg=Pagina-Principal">Início</a></li>
-                    <!-- Link para a seção de início -->
-                    <li><a href="?pg=Biblioteca">Biblioteca</a></li>
-                    <!-- Link para a seção de biblioteca -->
-                     <li><a href="../Admin/Index-Admin.php">Admin</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="user-area">
+        <?php if(isset($_SESSION['nome'])): ?>
+            <span style="color:white; margin-right:10px;">Olá, <strong><?php echo $_SESSION['nome']; ?></strong></span>
+            <a href="logout.php" class="btn-login" style="background-color: #dc3545;">Sair</a>
+        <?php else: ?>
+            <a href="cadastro.php" class="btn-login">Criar Conta / Entrar</a>
+        <?php endif; ?>
+    </div>
+</div>

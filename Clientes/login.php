@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['nome'] = $usuario['nome'];
 
             // Redireciona para a página principal
-            header("Location: Pagina-Principal.php");
+            header("Location: index.php");
             exit;
         } else {
             $erro = "E-mail ou senha incorretos!";
