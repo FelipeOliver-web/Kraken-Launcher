@@ -45,13 +45,14 @@
             $nome = htmlspecialchars($dados['nome']);
             $imagem = htmlspecialchars($dados['imagem']);
             $id = $dados['id'];
+            $link = $dados['link'];
 
             echo '
             <article class="game-card">
                 <img src="' . $imagem . '" alt="' . $nome . '" />
                 <h2>' . $nome . '</h2>
                 <div class="card-actions">
-                    <a href="' . $nome . '" target="_blank" class="btn-steam">Ver na Steam</a>
+                    <a href="' . $link . '" target="_blank" class="btn-steam">Ver na Steam</a>
                     <!-- O link envia o ID para a própria Página Principal para ser processado (Favoritar) -->
                     <a class="favorito-btn" href="?pg=Biblioteca&id=' . $id . '">Favoritar</a>
                 </div>
