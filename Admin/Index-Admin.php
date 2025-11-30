@@ -12,5 +12,3 @@
     }else{
         echo "Página não encontrada";
     }
-
-    include_once "Footer-Admin.php";
