@@ -1,8 +1,6 @@
 <?php
 // Clientes/cadastro.php
 session_start();
-
-// Conexão com o banco (assumindo que está na mesma pasta Clientes)
 require_once 'conexao.php'; 
 
 $mensagem = "";
@@ -10,39 +8,47 @@ $nome = "";
 $email = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Receber os dados e manter nas variáveis para não perder se der erro
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $senha = $_POST['senha'];
     $confirma_senha = $_POST['confirma_senha'];
 
-    // 2. Validações
     if (empty($nome) || empty($email) || empty($senha)) {
         $mensagem = "Preencha todos os campos!";
     } elseif ($senha !== $confirma_senha) {
         $mensagem = "As senhas não coincidem!";
     } else {
-        // 3. Verificar duplicidade
+        // Verifica duplicidade
         $stmt = $pdo->prepare("SELECT id FROM clientes WHERE email = ?");
         $stmt->execute([$email]);
         
         if ($stmt->rowCount() > 0) {
             $mensagem = "Este e-mail já está cadastrado!";
         } else {
-            // 4. Salvar no Banco
             $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
             try {
+                // 1. Inserir no banco
                 $sql = "INSERT INTO clientes (nome, email, senha) VALUES (?, ?, ?)";
                 $stmt_insert = $pdo->prepare($sql);
                 $stmt_insert->execute([$nome, $email, $senha_hash]);
 
-                // --- SUCESSO: Alerta e Tchau ---
+               
+               
+                $novo_id = $pdo->lastInsertId();
+
+                // Cria a sessão imediatamente
+                $_SESSION['id'] = $novo_id;
+                $_SESSION['nome'] = $nome;
+
+               
+
+                // 3. Redireciona já logado
                 echo "<script>
-                    alert('Cadastro realizado com sucesso! Bem-vindo ao Kraken.');
-                    window.location.href = 'Pagina-Principal.php';
+                    alert('Cadastro realizado! Você já está logado.');
+                    window.location.href = 'index.php';
                 </script>";
-                exit; // OBRIGATÓRIO: Para o script aqui para evitar resenvio
+                exit;
 
             } catch (PDOException $e) {
                 $mensagem = "Erro técnico: " . $e->getMessage();
