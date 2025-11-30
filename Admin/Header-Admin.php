@@ -27,7 +27,8 @@
                 <!-- Navegação do site -->
                 <ul>
                     <li><a href="?pg=Principal-Admin">Jogos</a></li>
-                    <li><a href="../Clientes/Index.php">Clientes</a></li>
+                    <li><a href="../Clientes/Index.php">Voltar</a></li>
+                    <a href="gerenciar-clientes.php">Clientes</a>
                 </ul>
             </nav>
         </div>
