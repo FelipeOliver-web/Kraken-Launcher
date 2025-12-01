@@ -235,7 +235,8 @@ footer {
     .btn-neon { width: 100%; display: block; }
 }
 .parallax-section {
-    background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg'); /* Fundo Hollow Knight */
+    /* Link do fundo do Hollow Knight (Roxo) */
+    background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg'); 
     height: 350px;
     background-attachment: fixed;
     background-position: center;
@@ -248,6 +249,15 @@ footer {
     margin-bottom: 40px;
     border-bottom: 2px solid #a020f0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* Filtro escuro para o texto brilhar mais */
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+
 }
 
 /* Filtro escuro para o texto brilhar mais */
@@ -304,4 +314,372 @@ nav {
     flex-grow: 1;
     display: flex;
     justify-content: center; /* Centraliza os links */
+}
+.thanks-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 0 20px;
+    flex: 1; /* Garante que o footer fique lá embaixo */
+}
+
+.page-title {
+    color: #ffd700; /* Dourado */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.subtitle {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* O Cartão do Altar */
+.altar-card {
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 2px solid #ffd700; /* Borda Dourada */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); /* Brilho Dourado */
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.altar-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Brilho intenso ao passar o mouse */
+    border-color: #fff;
+}
+
+/* A Foto */
+.professor-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    position: relative; 
+    z-index: 2;
+}
+
+.teacher-name {
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.tribute-text {
+    font-style: italic;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Selo de Nível */
+.xp-badge {
+    background-color: #ffd700;
+    color: #000;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px #ffd700;
+}
+.photo-wrapper {
+    position: relative;
+    width: 200px; /* Mesma largura da foto */
+    height: 200px; /* Mesma altura da foto */
+    margin: 0 auto 25px; /* Centraliza e dá espaço embaixo */
+}
+
+/* O círculo invisível que vai girar */
+.crown-orbit {
+    position: absolute;
+    /* Faz o círculo ser maior que a foto */
+    top: -30px;
+    left: -30px;
+    width: 260px; /* 200 da foto + 30 de cada lado */
+    height: 260px;
+    border-radius: 50%;
+    z-index: 1; /* Fica atrás da foto */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.5s ease; /* Aparece suavemente */
+    pointer-events: none; /* Deixa o mouse passar para a foto */
+}
+
+/* A imagem da coroa em si */
+.crown-icon {
+    width: 50px; /* Tamanho da coroa */
+    position: absolute;
+    top: 0; /* Fica no topo do círculo de órbita */
+    left: 50%;
+    transform: translateX(-50%) rotate(-15deg); /* Centraliza e inclina um pouco */
+    filter: drop-shadow(0 0 10px #ffd700); /* Brilho na coroa */
+}
+
+/* --- A MÁGICA (HOVER) --- */
+
+/* Quando passar o mouse no embrulho da foto... */
+.photo-wrapper:hover .crown-orbit {
+    opacity: 1; /* Mostra a órbita */
+    animation: spinAround 6s linear infinite; /* Inicia o giro */
+}
+
+/* A Animação de Giro */
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* =========================================
+   9. LISTA DE CONTATOS (ESTILO CHAT NEON)
+   ========================================= */
+
+.contacts-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.header-contacts {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os cartões */
+}
+
+/* O Cartão Individual de Contato */
+.contact-card {
+    display: flex;
+    align-items: center;
+    background-color: #111; /* Fundo escuro */
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito Hover (Passar o mouse) */
+.contact-card:hover {
+    transform: translateX(10px); /* Move levemente para a direita */
+    border-color: #a020f0;
+    box-shadow: -5px 5px 20px rgba(160, 32, 240, 0.2);
+    background-color: #161616;
+}
+
+/* A Foto do Integrante */
+.contact-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a020f0;
+    margin-right: 20px;
+}
+
+/* Informações de Texto */
+.contact-info {
+    flex-grow: 1; /* Ocupa o espaço do meio */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.contact-rgm {
+    font-size: 0.9rem;
+    color: #888;
+    font-family: monospace; /* Fonte estilo código para o RGM */
+}
+
+.contact-role {
+    font-size: 0.8rem;
+    color: #a020f0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Botão do WhatsApp */
+.btn-whatsapp {
+    background-color: #25D366; /* Verde Oficial do Zap */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+    white-space: nowrap; /* Não deixa o texto quebrar linha */
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd59;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    transform: scale(1.05);
+}
+
+/* Ajuste para Celulares */
+@media (max-width: 600px) {
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-avatar {
+        margin-right: 0;
+        width: 90px;
+        height: 90px;
+    }
+    
+    .btn-whatsapp {
+        width: 100%; /* Botão ocupa tudo no celular */
+        text-align: center;
+    }
+}
+.about-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Cartões de Conteúdo */
+.about-card {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Ajuste específico para o cartão da história */
+.story-card {
+    border-left: 4px solid #a020f0; /* Detalhe roxo na esquerda */
+}
+
+.text-area {
+    flex: 1;
+}
+
+.text-area h2, .mission-card h2 {
+    color: #a020f0;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.text-area p, .mission-card p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* Imagem do Kraken */
+.image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(160, 32, 240, 0.3);
+    border: 1px solid #a020f0;
+    transform: rotate(2deg); /* Charme visual: levemente torta */
+    transition: 0.3s;
+}
+
+.about-img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* Faixa de Tecnologias */
+.tech-strip {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    background: #0a0a0a;
+    border-radius: 10px;
+    border: 1px dashed #333;
+}
+
+.tech-strip h3 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Badges (Etiquetas) das tecnologias */
+.tech-badge {
+    background-color: #1a1a1a;
+    color: #e0e0ff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #a020f0;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 0 5px rgba(160, 32, 240, 0.2);
+}
+
+/* Cartão da Missão (Centralizado) */
+.mission-card {
+    display: block; /* Texto corrido, sem colunas */
+    text-align: center;
+    border-bottom: 4px solid #a020f0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column; /* Um embaixo do outro no celular */
+        text-align: center;
+    }
+    
+    .story-card {
+        border-left: 1px solid #333;
+        border-top: 4px solid #a020f0;
+    }
 }
