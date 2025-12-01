@@ -1,43 +1,50 @@
 /* =========================================
-   1. ESTILOS GERAIS (RESET E CORPO)
+   1. RESET E ESTRUTURA BÁSICA
    ========================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #0a0a0a; /* Fundo preto escuro */
-    color: #e0e0ff; /* Texto em roxo claro */
-    font-family: Arial, sans-serif;
+    background-color: #050505; /* Fundo Preto Profundo */
+    color: #e0e0ff;            /* Texto Roxo Claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evita rolagem lateral indesejada */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 /* =========================================
-   2. CABEÇALHO (HEADER) - CORRIGIDO
+   2. CABEÇALHO (HEADER)
    ========================================= */
 header {
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #a020f0;
+    background-color: #0f0f0f;
+    border-bottom: 2px solid #a020f0; /* Linha roxa neon */
     padding: 15px 0;
-    width: 100%;
+    box-shadow: 0 0 20px rgba(160, 32, 240, 0.2);
 }
 
-/* O Container flexível que organiza os 3 elementos */
 .header-container {
-    display: flex;
-    flex-direction: row; /* Garante linha horizontal */
-    justify-content: space-between; /* Espalha: Esq - Meio - Dir */
-    align-items: center;
-    max-width: 1400px; /* Limite de largura para telas grandes */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
-    box-sizing: border-box;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Grupo Logo + Título */
 .logo-title {
     display: flex;
     align-items: center;
@@ -48,69 +55,188 @@ header {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    object-fit: cover;
     border: 2px solid #a020f0;
-    transition: transform 0.3s ease;
-    user-select: none;
-}
-
-.logo:hover {
-    transform: rotate(15deg);
 }
 
 header h1 {
-    margin: 0;
     color: #a020f0;
     font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Navegação Central */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    gap: 30px;
+    gap: 25px;
+    margin: 0;
 }
 
 nav a {
-    color: #e0e0ff;
+    color: #fff;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    position: relative;
 }
 
 nav a:hover {
     color: #a020f0;
+    text-shadow: 0 0 10px #a020f0;
 }
 
-/* Área do Usuário (Direita) */
-.user-area {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.btn-login {
+.user-area .btn-login {
     background-color: #8a2be2;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: 5px;
     font-weight: bold;
-    border: 1px solid transparent;
 }
 
-.btn-login:hover {
+.user-area .btn-login:hover {
     background-color: #6a1bbd;
-    border-color: #fff;
-    transform: scale(1.05);
+    box-shadow: 0 0 15px #8a2be2;
 }
 
 /* =========================================
-   3. SEÇÃO PARALLAX & BUSCA
+   3. ÁREA DOS JOGOS
    ========================================= */
+.game-list {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    width: 100%;
+    flex: 1; /* Empurra o rodapé para baixo */
+}
+
+.game-card {
+    background-color: #141414;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #a020f0;
+    box-shadow: 0 5px 20px rgba(160, 32, 240, 0.25);
+}
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.game-card h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 15px 0;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.btn-steam {
+    background-color: #171a21;
+    color: #66c0f4;
+    border: 1px solid #66c0f4;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.favorito-btn {
+    border: 1px solid #a020f0;
+    color: #a020f0;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.favorito-btn:hover {
+    background-color: #a020f0;
+    color: white;
+    box-shadow: 0 0 10px #a020f0;
+}
+
+/* =========================================
+   4. RODAPÉ NEON (MODERNO)
+   ========================================= */
+footer {
+    background-color: #000;
+    border-top: 1px solid #a020f0;
+    padding: 40px 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.copyright {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* O EFEITO NEON NOS BOTÕES */
+.btn-neon {
+    display: inline-block;
+    background-color: #0a0a0a !important; /* Força fundo preto */
+    color: #e0e0ff !important;            /* Texto lilás */
+    padding: 12px 30px;
+    border: 1px solid #333;
+    border-radius: 50px;                  /* Borda redonda */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-neon:hover {
+    background-color: #a020f0 !important; /* Fundo vira roxo */
+    color: #fff !important;               /* Texto vira branco */
+    border-color: #a020f0;
+    box-shadow: 0 0 20px #a020f0, 0 0 40px rgba(160, 32, 240, 0.4); /* Super brilho */
+    transform: translateY(-4px);          /* Sobe um pouquinho */
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .footer-nav { flex-direction: column; width: 100%; }
+    .btn-neon { width: 100%; display: block; }
+}
 .parallax-section {
-    background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg');
-    height: 400px;
+    background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg'); /* Fundo Hollow Knight */
+    height: 350px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -119,242 +245,63 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #a020f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
-/* Overlay escuro para melhorar leitura */
+/* Filtro escuro para o texto brilhar mais */
 .parallax-section::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5); /* Escurece a imagem */
 }
 
 .parallax-text {
-    position: relative; /* Para ficar acima do overlay */
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 30px 50px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid #a020f0;
-    box-shadow: 0 0 20px rgba(160, 32, 240, 0.5);
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 600px;
+    padding: 0 20px;
+    text-align: center;
 }
 
-.parallax-text input#searchInput {
+/* A Barra de Busca Estilizada */
+#searchInput {
     width: 100%;
-    padding: 12px 20px;
+    padding: 15px 30px;
     font-size: 1.1rem;
     border: 2px solid #a020f0;
-    border-radius: 25px;
+    border-radius: 50px; /* Borda redonda */
+    background-color: rgba(10, 10, 10, 0.85); /* Fundo semi-transparente */
+    color: #fff;
     outline: none;
-    color: #0a0a0a;
-    font-weight: bold;
-    transition: box-shadow 0.3s ease;
-    box-sizing: border-box;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
 }
 
-.parallax-text input#searchInput:focus {
-    box-shadow: 0 0 15px #c64aff;
-    border-color: #c64aff;
+#searchInput::placeholder {
+    color: #aaa;
 }
 
-/* Resultados da Busca */
-#searchResults {
-    margin-top: 15px;
-    max-height: 250px;
-    overflow-y: auto;
-    text-align: left;
-    border: 1px solid #a020f0;
-    border-radius: 10px;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 10px #a020f0;
-}
-
-#searchResults .result-item {
-    padding: 10px 15px;
-    border-bottom: 1px solid #333;
-    color: #e0e0ff;
-    cursor: pointer;
-}
-
-#searchResults .result-item:hover {
-    background-color: #a020f0;
-    color: #000;
+#searchInput:focus {
+    background-color: #000;
+    box-shadow: 0 0 25px #a020f0; /* Brilho intenso ao digitar */
+    transform: scale(1.02);
 }
 
 /* =========================================
-   4. LISTA DE JOGOS (GRID)
+   6. CORREÇÃO: ESPAÇAMENTO DO HEADER
    ========================================= */
-.game-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 60px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+/* Isso força o menu a se afastar do título "Kraken Launcher" */
+.logo-title {
+    margin-right: 40px; 
 }
 
-.game-card {
-    background-color: #1a1a1a;
-    border: 2px solid #a020f0;
-    padding: 20px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+/* Garante que o menu fique centralizado se houver espaço */
+nav {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(160, 32, 240, 0.3);
-    border-color: #c64aff;
-}
-
-.game-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #333;
-}
-
-.game-card h2 {
-    color: #a020f0;
-    margin: 10px 0;
-    font-size: 1.3rem;
-}
-
-.game-card a {
-    display: inline-block;
-    margin-top: auto; /* Empurra o botão para o fundo */
-    background-color: #a020f0;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.game-card a:hover {
-    background-color: #c64aff;
-}
-
-/* =========================================
-   5. SEÇÃO VR & BIBLIOTECA
-   ========================================= */
-.section-title {
-    font-size: 2rem;
-    color: #b57aff;
-    margin: 40px 0 20px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.vr-games-list {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 20px 40px;
-    scrollbar-width: thin;
-    scrollbar-color: #b57aff transparent;
-}
-
-.vr-game-card {
-    flex: 0 0 250px;
-    background: #121212;
-    border: 2px solid #8b55ff;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.vr-game-card:hover {
-    transform: scale(1.05);
-}
-
-.vr-game-card img {
-    width: 100%;
-    border-radius: 8px;
-    height: 140px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-/* Biblioteca Popup */
-.hidden {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 800px;
-    background-color: #0a0a0a;
-    border: 2px solid #a020f0;
-    padding: 30px;
-    z-index: 1000;
-    border-radius: 10px;
-    box-shadow: 0 0 50px rgba(160, 32, 240, 0.5);
-}
-
-#biblioteca:target {
-    display: block;
-}
-
-.library li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    background: #1a1a1a;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #333;
-}
-
-.library img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 15px;
-}
-
-.close-link {
-    background: #dc3545;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    float: right;
-}
-
-/* =========================================
-   6. RODAPÉ E RESPONSIVIDADE
-   ========================================= */
-footer {
-    text-align: center;
-    padding: 40px;
-    background-color: #111;
-    border-top: 2px solid #a020f0;
-    color: #888;
-    margin-top: 50px;
-}
-
-/* Responsividade Mobile */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .game-list {
-        padding: 20px;
-    }
+    justify-content: center; /* Centraliza os links */
 }
