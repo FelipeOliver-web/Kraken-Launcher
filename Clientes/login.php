@@ -2,19 +2,17 @@
 // Clientes/login.php
 session_start();
 
-// As credenciais específicas de admin (hardcoded) para acesso especial
-$email_especifico = "admin@exemplo.com";
-$senha_especifica = "senha123";
+// 1. Inclui o arquivo de segredos para carregar as constantes
+// Este arquivo DEVE estar no .gitignore
+require_once 'config_secrets.php'; 
 
-// Nota: A linha abaixo 'require_once 'conexao.php';' pressupõe que você tem o 
-// arquivo 'conexao.php' configurado e ele fornece o objeto $pdo.
+// Nota: O require de conexao.php DEVE vir ANTES do uso do $pdo
 require_once 'conexao.php'; 
 
 $erro = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    // A senha é pega em texto puro para a comparação inicial com o admin hardcoded.
     $senha = $_POST['senha']; 
 
     if (empty($email) || empty($senha)) {
@@ -22,11 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         
         // --- 1. TENTA LOGIN ADMIN HARDCODED ---
-        if ($email === $email_especifico && $senha === $senha_especifica) {
+        // Agora usa as CONSTANTES definidas em config_secrets.php
+        if ($email === ADMIN_EMAIL && $senha === ADMIN_PASSWORD) { 
             // Login de administrador bem-sucedido
-            $_SESSION['id'] = 0; // ID Fictício para admin
+            $_SESSION['id'] = 0; 
             $_SESSION['nome'] = "Administrador";
-            $_SESSION['is_admin'] = true; // Variável para indicar o acesso especial (Header Alternativo)
+            $_SESSION['is_admin'] = true; 
             
             header("Location: index.php");
             exit;
@@ -39,13 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $stmt->fetch();
 
         // 2. Verifica se o usuário existe E se a senha bate
-        // O password_verify compara a senha digitada com a criptografia do banco
         if ($usuario && password_verify($senha, $usuario['senha'])) {
             
             // 3. Login Sucesso: Cria a sessão
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['is_admin'] = false; // É um cliente padrão
+            $_SESSION['is_admin'] = false; 
             
             // Redireciona para a página principal
             header("Location: index.php");
@@ -56,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erro = "E-mail ou senha incorretos!";
     }
 }
+// ... (RESTO DO HTML ABAIXO) ...
 ?>
 
 <!DOCTYPE html>

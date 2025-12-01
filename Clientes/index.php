@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// 1. Inclui o script de busca (mantendo a ordem mais comum)
-include_once "Busca.php";
-
 // 2. Lógica de Cabeçalho Condicional
 // Verifica se a sessão 'is_admin' foi definida e é verdadeira (indicando o login especial)
 if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
@@ -13,6 +10,10 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
     // Inclui o header padrão para clientes e usuários não logados
     include_once "Header-Clientes.php";
 }
+
+// 1. Inclui o script de busca (mantendo a ordem mais comum)
+
+include_once "Busca.php";
 
 // 3. Lógica de Roteamento/Inclusão de Conteúdo Principal
 if(empty($_SERVER['QUERY_STRING'])){
