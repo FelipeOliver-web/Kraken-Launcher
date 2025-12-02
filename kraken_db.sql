@@ -1,9 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
+-- phpMyAdmin SQL Dump unificado para kraken_db
 -- Host: 127.0.0.1
--- Tempo de geração: 02/12/2025 às 03:50
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -21,7 +17,36 @@ SET time_zone = "+00:00";
 -- Banco de dados: `kraken_db`
 --
 
--- --------------------------------------------------------
+--
+-- Estrutura para tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `data_cadastro` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `email`, `senha`, `data_cadastro`) VALUES
+(1, 'luiz', 'felipeoliver898@gmail.com', '$2y$10$fHDUqXKh4e.qrZMoYfJ/sOuB97C0v/pp3LC.akwnuCq0tBwWIWkdK', '2025-11-30 11:53:03'),
+(2, 'fonseca', 'felipefonseca898@gmail.com', '$2y$10$SI16kwAKZvwQyl6ain/AHeEP2vIhhevh2oHWY8y7jDKE2tmglovFe', '2025-11-30 12:01:11');
+
+--
+-- Estrutura para tabela `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `id` int(50) DEFAULT NULL,
+  `imagem` varchar(1000) DEFAULT NULL,
+  `nome` varchar(300) DEFAULT NULL,
+  `link` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Estrutura para tabela `jogos`
@@ -41,6 +66,8 @@ CREATE TABLE `jogos` (
 
 INSERT INTO `jogos` (`id`, `imagem`, `nome`, `link`, `estatus`) VALUES
 (13, 'https://tse3.mm.bing.net/th/id/OIP.tCFURJJ2HSYTBk6HFkefgAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', 'Hollow Knight', 'https://store.steampowered.com/app/367520/Hollow_Knight/', 'false'),
+(14, 'https://tse3.mm.bing.net/th/id/OIP.tCFURJJ2HSYTBk6HFkefgAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', 'Seinen', 'https://store.steampowered.com/app/367520/Hollow_Knight/', 'false'),
+(15, '', '', '', ''),
 (16, 'https://wallpapers.com/images/hd/among-us-pictures-frg8lbdw0bgau4ki.jpg', 'Among Us', 'https://store.steampowered.com/app/945360/Among_Us/', 'false'),
 (17, 'https://tse1.mm.bing.net/th/id/OIP.NhAOtW4q4L9f5AbGFhiNcAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', 'Elden Ring', 'https://store.steampowered.com/app/1245620/ELDEN_RING/', 'false'),
 (18, 'https://th.bing.com/th/id/R.ba4719cd2363c685fe06ef9befa68d55?rik=BOLbfSzFvi2Iqw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f3%2fc%2fa%2f782669-cool-terraria-wallpaper-hd-1920x1080-for-lockscreen.jpg&ehk=k0r8f6iQgaqZQJ9uU612VKIWe81Hkv%2bpIAG8wQo3doc%3d&risl=&pid=ImgRaw&r=0', 'Terraria', 'https://store.steampowered.com/app/105600/Terraria/', 'false'),
@@ -61,6 +88,13 @@ INSERT INTO `jogos` (`id`, `imagem`, `nome`, `link`, `estatus`) VALUES
 --
 
 --
+-- Índices de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Índices de tabela `jogos`
 --
 ALTER TABLE `jogos`
@@ -69,6 +103,12 @@ ALTER TABLE `jogos`
 --
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `jogos`
