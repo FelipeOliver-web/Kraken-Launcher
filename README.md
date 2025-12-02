@@ -27,3 +27,19 @@ Desenvolver uma plataforma web onde o usuário possa visualizar uma biblioteca d
 - Git e GitHub para controle de versão
 - PHP
 - MYSQL(Banco de Dados)
+
+ ## Acesso admin
+ para que a funcionalidade da página inicial com o botão admin funcione é preciso que o usuário do código adicione um arquivivo no diretório Clientes:
+ nome do arquivo: config_admin.php;
+ código a ser ultilizado: 
+ <?php
+// Este arquivo armazena credenciais e NÃO deve ser incluído no Git.
+// Use um nome de arquivo diferente de 'conexao.php' para manter as responsabilidades separadas.
+
+// Credenciais de Acesso Especial (Admin Hardcoded)
+define('ADMIN_EMAIL', 'admin@exemplo.com');
+define('ADMIN_PASSWORD', 'senha123');
+
+// Em uma aplicação real, você também colocaria aqui as credenciais do banco de dados (host, user, password).
+?>
+isso serve para que a validação funcione, uma vez que de forma realista o usuário não deve ter esse acesso.
