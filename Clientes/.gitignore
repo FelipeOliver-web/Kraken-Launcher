@@ -1,0 +1,13 @@
+# Arquivos de credenciais e segredos (NÃO devem ser versionados!)
+config_secrets.php
+conexao.php
+
+# Arquivos/Pastas específicos do PHP
+vendor/ # Pasta de dependências do Composer
+composer.lock # Opcional, mas geralmente recomendado para consistência
+
+# Logs e Dados Temporários
+*.log
+*.tmp
+.DS_Store # Arquivos do macOS
+Thumbs.db # Arquivos do Windows

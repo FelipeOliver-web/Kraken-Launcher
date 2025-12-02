@@ -1,579 +1,685 @@
-/* Define estilo geral da página */
+/* =========================================
+   1. RESET E ESTRUTURA BÁSICA
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  background-color: #0a0a0a; /* Fundo preto escuro */
-  color: #e0e0ff; /* Texto em roxo claro */
-  font-family: Arial, sans-serif; /* Fonte padrão */
-  margin: 0;
-  padding: 0;
-}
-
-/* Estilo do cabeçalho */
-header {
-  background-color: #1a1a1a; /* Fundo do cabeçalho */
-  border-bottom: 2px solid #a020f0; /* Linha roxa na parte inferior */
-  padding: 20px;
-  text-align: center; /* Centraliza conteúdo */
-}
-
-/* Título no cabeçalho */
-header h1 {
-  margin: 0;
-  color: #a020f0; /* Cor roxa vibrante */
-}
-
-/* Lista de navegação */
-nav ul {
-  list-style: none; /* Remove marcadores */
-  padding: 0;
-  margin: 10px 0 0 0;
-  display: flex;
-  justify-content: center; /* Centraliza os itens */
-  gap: 30px; /* Espaço entre itens */
-}
-
-/* Links de navegação */
-nav a {
-  text-decoration: none;
-  color: #e0e0ff;
-  font-weight: bold;
-}
-
-/* Efeito hover nos links */
-nav a:hover {
-  color: #a020f0; /* Muda para roxo vibrante */
-}
-
-/* Lista de jogos em grade responsiva */
-.game-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto 80px auto; /* Centraliza */
-}
-
-/* Cartão de cada jogo */
-.game-card {
-  background-color: #1a1a1a;
-  border: 2px solid #a020f0;
-  padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.2s ease; /* Suaviza efeito hover */
-  text-align: center;
-}
-
-/* Efeito hover nos cartões */
-.game-card:hover {
-  transform: scale(1.03); /* Aumenta levemente */
-  border-color: #c64aff; /* Muda borda */
-}
-
-/* Imagem do jogo */
-.game-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #a020f0;
-  user-select: none; /* Impede seleção */
-}
-
-/* Título do jogo */
-.game-card h2 {
-  color: #a020f0;
-  margin-top: 0;
-  user-select: none;
-}
-
-/* Botão/link do jogo */
-.game-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #ffffff;
-  background-color: #a020f0;
-  padding: 8px 16px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  user-select: none;
-}
-
-/* Hover no botão/link */
-.game-card a:hover {
-  background-color: #c64aff;
-}
-
-/* Rodapé da página */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #111;
-  border-top: 2px solid #a020f0;
-  color: #888;
-  user-select: none;
-}
-
-/* Janela de popup (ex: biblioteca) */
-.hidden {
-  display: none;
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  background-color: #0a0a0a;
-  border: 2px solid #a020f0;
-  padding: 20px;
-  z-index: 10;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #a020f0;
-}
-
-/* Exibe popup quando é alvo */
-#biblioteca:target {
-  display: block;
-}
-
-/* Título da seção da biblioteca */
-.library-section h2 {
-  color: #a020f0;
-  margin-bottom: 15px;
-}
-
-/* Lista da biblioteca */
-.library {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Item da biblioteca */
-.library li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  color: #e0e0ff;
-  font-size: 1em;
-}
-
-/* Imagem da biblioteca */
-.library img {
-  width: 92px;
-  height: auto;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid #a020f0;
-  user-select: none;
-}
-
-/* Botão para fechar popup */
-.close-link {
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #fff;
-  background-color: #a020f0;
-  padding: 6px 12px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-/* Hover do botão de fechar */
-.close-link:hover {
-  background-color: #c64aff;
-}
-
-/* Container do cabeçalho com logo + título */
-.header-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Agrupamento de logo e título */
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Logo do site */
-.logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #a020f0;
-  transition: transform 0.3s ease;
-  user-select: none;
-}
-
-/* Efeito ao passar o mouse na logo */
-.logo:hover {
-  transform: rotate(15deg);
-}
-
-/* Seção com efeito parallax */
-.parallax-section {
-  background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg');
-  height: 400px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Texto e input na área parallax */
-.parallax-text {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px 40px;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid #a020f0;
-  box-shadow: 0 0 10px #a020f0;
-  width: 100%;
-  max-width: 500px;
-}
-
-/* Campo de busca */
-.parallax-text input#searchInput {
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 1.1rem;
-  border: 2px solid #a020f0;
-  border-radius: 25px;
-  outline: none;
-  color: #0a0a0a;
-  font-weight: bold;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Placeholder do input */
-.parallax-text input#searchInput::placeholder {
-  color: #a020f0;
-}
-
-/* Foco no campo de busca */
-.parallax-text input#searchInput:focus {
-  box-shadow: 0 0 10px #c64aff;
-  border-color: #c64aff;
-}
-
-/* Layout responsivo para mobile */
-@media (max-width: 600px) {
-  .game-list {
-    padding: 20px 10px;
-  }
-
-  .parallax-text input#searchInput {
-    width: 90vw;
-  }
-}
-
-/* Resultados do filtro de busca */
-#searchResults {
-  margin-top: 15px;
-  max-height: 250px;
-  overflow-y: auto;
-  text-align: left;
-  border: 1px solid #a020f0;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  box-shadow: 0 0 10px #a020f0;
-}
-
-/* Cada item nos resultados */
-#searchResults .result-item {
-  padding: 10px 15px;
-  border-bottom: 1px solid #a020f0;
-  color: #e0e0ff;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease;
-}
-
-/* Remove borda do último item */
-#searchResults .result-item:last-child {
-  border-bottom: none;
-}
-
-/* Hover no item de resultado */
-#searchResults .result-item:hover {
-  background-color: #a020f0;
-  color: #0a0a0a;
-}
-
-/* Link dentro do item */
-#searchResults .result-item a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
-}
-
-/* Subtexto (ex: gênero do jogo) */
-#searchResults .result-item span {
-  font-size: 0.9rem;
-  display: block;
-  margin-top: 4px;
-  color: #c64aff;
-}
-
-/* Título das seções */
-.section-title {
-  font-size: 2rem;
-  color: #b57aff;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* Lista de jogos VR com rolagem horizontal */
-.vr-games-list {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scrollbar-width: thin;
-  scrollbar-color: #b57aff transparent;
-  justify-content: center;
-}
-
-/* Barra de rolagem webkit */
-.vr-games-list::-webkit-scrollbar {
-  height: 8px;
-}
-
-.vr-games-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.vr-games-list::-webkit-scrollbar-thumb {
-  background-color: #b57aff;
-  border-radius: 4px;
-}
-
-/* Cartão de jogo VR */
-.vr-game-card {
-  flex: 0 0 250px;
-  background: #121212;
-  border: 2px solid #8b55ff;
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 0 10px #a366ff;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-/* Hover no cartão VR */
-.vr-game-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #c699ff;
-}
-
-/* Imagem no cartão VR */
-.vr-game-card img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-  height: 136px;
-  object-fit: cover;
-}
-
-/* Título do jogo VR */
-.vr-game-card h3 {
-  color: #d8baff;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-/* Botão nos cartões VR */
-.vr-game-card .btn {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  background: #8b55ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-/* Hover do botão */
-.vr-game-card .btn:hover {
-  background: #b57aff;
-}
-
-/* Container da seção VR */
-.vr-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-  width: 100%;
-  max-width: 1100px;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-/* Seção da biblioteca */
-.library-section {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #1a1a1a;
-  border: 2px solid #a020f0;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #a020f0;
-}
-
-/* Lista de itens */
-.library {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* Cada item */
-.library li {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background-color: #0a0a0a;
-  border: 1px solid #a020f0;
-  border-radius: 10px;
-  transition: transform 0.2s ease;
-}
-
-.library li:hover {
-  transform: scale(1.03);
-  border-color: #c64aff;
-}
-
-/* Imagem */
-.library img {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
-  border: 1px solid #a020f0;
-  object-fit: cover;
-  user-select: none;
-}
-
-/* Texto */
-.library li strong {
-  color: #a020f0;
-  font-size: 1.1rem;
-}
-
-.library li p {
-  margin: 5px 0 0;
-  color: #e0e0ff;
-  font-size: 0.9rem;
-}
-.favorito-btn {
-  background-color: #4f46e5; /* Roxo-azulado */
-  color: #ffffff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.favorito-btn:hover {
-  background-color: #3730a3; /* Mais escuro ao passar o mouse */
-  transform: scale(1.05);
-}
-
-.favorito-btn.favoritado {
-  background-color: #10b981; /* Verde quando favoritado */
-}
-
-.favorito-btn.favoritado:hover {
-  background-color: #047857; /* Verde mais escuro no hover */
-}
-.jogo-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #111;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid purple;
-  border-radius: 8px;
-  box-shadow: 0 0 10px purple;
-}
-
-.jogo-item img {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.info-jogo {
-  flex: 1;
-  padding: 0 10px;
-}
-
-.remover-btn {
-  background-color: transparent;
-  color: #f0f;
-  border: 1px solid #f0f;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.remover-btn:hover {
-  background-color: #f0f;
-  color: #000;
-}
-
-.footer-buttons {
-  margin-top: 10px;
-}
-
-.footer-buttons button {
-  margin: 5px;
-  padding: 8px 12px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.footer-buttons button:hover {
-  background-color: #555;
+    background-color: #050505; /* Fundo Preto Profundo */
+    color: #e0e0ff;            /* Texto Roxo Claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
-  margin-top: 10px;
-  margin: 5px;
-  padding: 8px 12px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* =========================================
+   2. CABEÇALHO (HEADER)
+   ========================================= */
+header {
+    background-color: #0f0f0f;
+    border-bottom: 2px solid #a020f0; /* Linha roxa neon */
+    padding: 15px 0;
+    box-shadow: 0 0 20px rgba(160, 32, 240, 0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #a020f0;
+}
+
+header h1 {
+    color: #a020f0;
+    font-size: 1.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+}
+
+nav a:hover {
+    color: #a020f0;
+    text-shadow: 0 0 10px #a020f0;
+}
+
+.user-area .btn-login {
+    background-color: #8a2be2;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.user-area .btn-login:hover {
+    background-color: #6a1bbd;
+    box-shadow: 0 0 15px #8a2be2;
+}
+
+/* =========================================
+   3. ÁREA DOS JOGOS
+   ========================================= */
+.game-list {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    width: 100%;
+    flex: 1; /* Empurra o rodapé para baixo */
+}
+
+.game-card {
+    background-color: #141414;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #a020f0;
+    box-shadow: 0 5px 20px rgba(160, 32, 240, 0.25);
+}
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.game-card h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 15px 0;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.btn-steam {
+    background-color: #171a21;
+    color: #66c0f4;
+    border: 1px solid #66c0f4;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.favorito-btn {
+    border: 1px solid #a020f0;
+    color: #a020f0;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.favorito-btn:hover {
+    background-color: #a020f0;
+    color: white;
+    box-shadow: 0 0 10px #a020f0;
+}
+
+/* =========================================
+   4. RODAPÉ NEON (MODERNO)
+   ========================================= */
+footer {
+    background-color: #000;
+    border-top: 1px solid #a020f0;
+    padding: 40px 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.copyright {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* O EFEITO NEON NOS BOTÕES */
+.btn-neon {
+    display: inline-block;
+    background-color: #0a0a0a !important; /* Força fundo preto */
+    color: #e0e0ff !important;            /* Texto lilás */
+    padding: 12px 30px;
+    border: 1px solid #333;
+    border-radius: 50px;                  /* Borda redonda */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-neon:hover {
+    background-color: #a020f0 !important; /* Fundo vira roxo */
+    color: #fff !important;               /* Texto vira branco */
+    border-color: #a020f0;
+    box-shadow: 0 0 20px #a020f0, 0 0 40px rgba(160, 32, 240, 0.4); /* Super brilho */
+    transform: translateY(-4px);          /* Sobe um pouquinho */
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .footer-nav { flex-direction: column; width: 100%; }
+    .btn-neon { width: 100%; display: block; }
+}
+.parallax-section {
+    /* Link do fundo do Hollow Knight (Roxo) */
+    background-image: url('https://i.ytimg.com/vi/N6S9FZiI3eg/maxresdefault.jpg'); 
+    height: 350px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #a020f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* Filtro escuro para o texto brilhar mais */
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+
+}
+
+/* Filtro escuro para o texto brilhar mais */
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Escurece a imagem */
+}
+
+.parallax-text {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* A Barra de Busca Estilizada */
+#searchInput {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: 2px solid #a020f0;
+    border-radius: 50px; /* Borda redonda */
+    background-color: rgba(10, 10, 10, 0.85); /* Fundo semi-transparente */
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
+}
+
+#searchInput::placeholder {
+    color: #aaa;
+}
+
+#searchInput:focus {
+    background-color: #000;
+    box-shadow: 0 0 25px #a020f0; /* Brilho intenso ao digitar */
+    transform: scale(1.02);
+}
+
+/* =========================================
+   6. CORREÇÃO: ESPAÇAMENTO DO HEADER
+   ========================================= */
+/* Isso força o menu a se afastar do título "Kraken Launcher" */
+.logo-title {
+    margin-right: 40px; 
+}
+
+/* Garante que o menu fique centralizado se houver espaço */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centraliza os links */
+}
+.thanks-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 0 20px;
+    flex: 1; /* Garante que o footer fique lá embaixo */
+}
+
+.page-title {
+    color: #ffd700; /* Dourado */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.subtitle {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* O Cartão do Altar */
+.altar-card {
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 2px solid #ffd700; /* Borda Dourada */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); /* Brilho Dourado */
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.altar-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); /* Brilho intenso ao passar o mouse */
+    border-color: #fff;
+}
+
+/* A Foto */
+.professor-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    position: relative; 
+    z-index: 2;
+}
+
+.teacher-name {
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.tribute-text {
+    font-style: italic;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Selo de Nível */
+.xp-badge {
+    background-color: #ffd700;
+    color: #000;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    box-shadow: 0 0 10px #ffd700;
+}
+.photo-wrapper {
+    position: relative;
+    width: 200px; /* Mesma largura da foto */
+    height: 200px; /* Mesma altura da foto */
+    margin: 0 auto 25px; /* Centraliza e dá espaço embaixo */
+}
+
+/* O círculo invisível que vai girar */
+.crown-orbit {
+    position: absolute;
+    /* Faz o círculo ser maior que a foto */
+    top: -30px;
+    left: -30px;
+    width: 260px; /* 200 da foto + 30 de cada lado */
+    height: 260px;
+    border-radius: 50%;
+    z-index: 1; /* Fica atrás da foto */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.5s ease; /* Aparece suavemente */
+    pointer-events: none; /* Deixa o mouse passar para a foto */
+}
+
+/* A imagem da coroa em si */
+.crown-icon {
+    width: 50px; /* Tamanho da coroa */
+    position: absolute;
+    top: 0; /* Fica no topo do círculo de órbita */
+    left: 50%;
+    transform: translateX(-50%) rotate(-15deg); /* Centraliza e inclina um pouco */
+    filter: drop-shadow(0 0 10px #ffd700); /* Brilho na coroa */
+}
+
+/* --- A MÁGICA (HOVER) --- */
+
+/* Quando passar o mouse no embrulho da foto... */
+.photo-wrapper:hover .crown-orbit {
+    opacity: 1; /* Mostra a órbita */
+    animation: spinAround 6s linear infinite; /* Inicia o giro */
+}
+
+/* A Animação de Giro */
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* =========================================
+   9. LISTA DE CONTATOS (ESTILO CHAT NEON)
+   ========================================= */
+
+.contacts-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.header-contacts {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os cartões */
+}
+
+/* O Cartão Individual de Contato */
+.contact-card {
+    display: flex;
+    align-items: center;
+    background-color: #111; /* Fundo escuro */
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito Hover (Passar o mouse) */
+.contact-card:hover {
+    transform: translateX(10px); /* Move levemente para a direita */
+    border-color: #a020f0;
+    box-shadow: -5px 5px 20px rgba(160, 32, 240, 0.2);
+    background-color: #161616;
+}
+
+/* A Foto do Integrante */
+.contact-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #a020f0;
+    margin-right: 20px;
+}
+
+/* Informações de Texto */
+.contact-info {
+    flex-grow: 1; /* Ocupa o espaço do meio */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.contact-rgm {
+    font-size: 0.9rem;
+    color: #888;
+    font-family: monospace; /* Fonte estilo código para o RGM */
+}
+
+.contact-role {
+    font-size: 0.8rem;
+    color: #a020f0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Botão do WhatsApp */
+.btn-whatsapp {
+    background-color: #25D366; /* Verde Oficial do Zap */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+    white-space: nowrap; /* Não deixa o texto quebrar linha */
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd59;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    transform: scale(1.05);
+}
+
+/* Ajuste para Celulares */
+@media (max-width: 600px) {
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-avatar {
+        margin-right: 0;
+        width: 90px;
+        height: 90px;
+    }
+    
+    .btn-whatsapp {
+        width: 100%; /* Botão ocupa tudo no celular */
+        text-align: center;
+    }
+}
+.about-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Cartões de Conteúdo */
+.about-card {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Ajuste específico para o cartão da história */
+.story-card {
+    border-left: 4px solid #a020f0; /* Detalhe roxo na esquerda */
+}
+
+.text-area {
+    flex: 1;
+}
+
+.text-area h2, .mission-card h2 {
+    color: #a020f0;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.text-area p, .mission-card p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* Imagem do Kraken */
+.image-area {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(160, 32, 240, 0.3);
+    border: 1px solid #a020f0;
+    transform: rotate(2deg); /* Charme visual: levemente torta */
+    transition: 0.3s;
+}
+
+.about-img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* Faixa de Tecnologias */
+.tech-strip {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    background: #0a0a0a;
+    border-radius: 10px;
+    border: 1px dashed #333;
+}
+
+.tech-strip h3 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Badges (Etiquetas) das tecnologias */
+.tech-badge {
+    background-color: #1a1a1a;
+    color: #e0e0ff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #a020f0;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 0 5px rgba(160, 32, 240, 0.2);
+}
+
+/* Cartão da Missão (Centralizado) */
+.mission-card {
+    display: block; /* Texto corrido, sem colunas */
+    text-align: center;
+    border-bottom: 4px solid #a020f0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column; /* Um embaixo do outro no celular */
+        text-align: center;
+    }
+    
+    .story-card {
+        border-left: 1px solid #333;
+        border-top: 4px solid #a020f0;
+    }
 }
